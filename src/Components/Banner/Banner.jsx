@@ -1,7 +1,7 @@
-import React from 'react'
+import React,{useState} from 'react'
 import './Banner.css'
 const Banner= ()=> {
-    const[movie,setMovie]=useState(initialState)
+    const[movie,setMovie]=useState('')
     
   return (
     
