@@ -1,0 +1,24 @@
+import React from 'react'
+import './Banner.css'
+const Banner= ()=> {
+    const[movie,setMovie]=useState(initialState)
+    
+  return (
+    
+    <div  className='banner'>
+        <div className="content">
+            <h1 className="title">
+            </h1>
+            <div className="banner_buttons">
+                <button className="button">Play</button>
+                <button className="button">My List</button>
+            </div>
+            <p className="description">
+            </p>
+        </div>
+        <div className="fade_bottom"></div>
+    </div>
+  )
+}
+
+export default Banner
