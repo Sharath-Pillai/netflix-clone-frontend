@@ -40,5 +40,5 @@ background-color: #e6e6e6;
 }
 .fade_bottom{
     height: 600px;
-    background-image: linear-gradient(180deg,transparent,rgba(37,37,37,0.61),#ff0000);
+    background-image: linear-gradient(180deg,transparent,rgba(40, 39, 39, 0.61),#ff0000);
 }
