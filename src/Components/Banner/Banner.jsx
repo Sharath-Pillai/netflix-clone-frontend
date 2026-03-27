@@ -14,7 +14,7 @@ const Banner = () => {
           `https://api.themoviedb.org/3/trending/all/week?api_key=${API_KEY}&language=en-US`
         );
         const results = response.data.results;
-        // Pick a random movie from the trending list
+        // Showing a random movie from the trending list
         const randomMovie = results[Math.floor(Math.random() * results.length)];
         setMovie(randomMovie);
       } catch (error) {
