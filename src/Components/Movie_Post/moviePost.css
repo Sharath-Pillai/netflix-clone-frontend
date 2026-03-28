@@ -55,7 +55,7 @@
 
 .small_poster {
   max-height: 150px;
-  border-radius: 4px;
+  border-radius: 5px;
   cursor: pointer;
   flex-shrink: 0;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
