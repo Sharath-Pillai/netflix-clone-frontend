@@ -1,30 +1,27 @@
 import React from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
 import "./App.css";
 import Navbar from "./Components/Navbar/Navbar";
-import Banner from "./Components/Banner/Banner";
-import MoviePost from "./Components/Movie_Post/MoviePost";
-import {
-  originals,
-  trending,
-  action,
-  comedy,
-  horror,
-  romance,
-  documentaries,
-} from "./urls";
+import Home from "./Pages/Home/Home";
+import TvShows from "./Pages/TvShows/TvShows";
+import Movies from "./Pages/Movies/Movies";
+import Player from "./Pages/Player/Player";
+import MyList from "./Pages/MyList/MyList";
 
 const App = () => {
+  const location = useLocation();
+  const hideNavbar = location.pathname.startsWith("/player");
+
   return (
     <div className="App">
-      <Navbar />
-      <Banner />
-      <MoviePost url={originals} title="Netflix Originals" />
-      <MoviePost url={trending} title="Trending Now" isSmall />
-      <MoviePost url={action} title="Action Movies" isSmall />
-      <MoviePost url={comedy} title="Comedy Movies" isSmall />
-      <MoviePost url={horror} title="Horror Movies" isSmall />
-      <MoviePost url={romance} title="Romance Movies" isSmall />
-      <MoviePost url={documentaries} title="Documentaries" isSmall />
+      {!hideNavbar && <Navbar />}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/tvshows" element={<TvShows />} />
+        <Route path="/movies" element={<Movies />} />
+        <Route path="/player/:title" element={<Player />} />
+        <Route path="/mylist" element={<MyList />} />
+      </Routes>
     </div>
   );
 };

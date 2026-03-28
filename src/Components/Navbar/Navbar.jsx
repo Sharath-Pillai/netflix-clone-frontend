@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -25,16 +26,18 @@ const Navbar = () => {
   return (
     <nav className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
       <div className="navbar__left">
-        <img
-          className="logo"
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/1920px-Netflix_2015_logo.svg.png"
-          alt="Netflix logo"
-        />
+        <Link to="/">
+          <img
+            className="logo"
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/1920px-Netflix_2015_logo.svg.png"
+            alt="Netflix logo"
+          />
+        </Link>
         <ul className="nav__links">
-          <li>Home</li>
-          <li>TV Shows</li>
-          <li>Movies</li>
-          <li>My List</li>
+          <li><Link to="/" style={{color: 'white', textDecoration: 'none'}}>Home</Link></li>
+          <li><Link to="/tvshows" style={{color: 'white', textDecoration: 'none'}}>TV Shows</Link></li>
+          <li><Link to="/movies" style={{color: 'white', textDecoration: 'none'}}>Movies</Link></li>
+          <li><Link to="/mylist" style={{color: 'white', textDecoration: 'none'}}>My List</Link></li>
         </ul>
       </div>
       <img
