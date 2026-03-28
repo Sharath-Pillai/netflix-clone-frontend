@@ -1,0 +1,72 @@
+.mylist-page {
+  padding: 100px 20px 20px; /* Padding for fixed navbar */
+  min-height: 100vh;
+  background-color: #111;
+  color: white;
+}
+
+.mylist-page__title {
+  margin-bottom: 20px;
+}
+
+.mylist-page__empty {
+  color: #aaa;
+  font-size: 1.2rem;
+}
+
+.mylist-page__grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.mylist-item {
+  width: 250px;
+  position: relative;
+  transition: transform 450ms;
+}
+
+.mylist-item:hover {
+  transform: scale(1.08);
+  z-index: 100;
+}
+
+.mylist-item__poster {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.mylist-item__info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  padding: 0 5px;
+}
+
+.mylist-item__info h4 {
+  margin: 0;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 150px;
+}
+
+.mylist-item__removeBtn {
+  background-color: transparent;
+  color: #e50914;
+  border: 1px solid #e50914;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.mylist-item__removeBtn:hover {
+  background-color: #e50914;
+  color: white;
+}
