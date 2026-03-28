@@ -1,73 +1,38 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./moviePost.css";
+import axios from "axios";
+import { imageUrl } from "../../Constants/constants";
 
-const MoviePost = () => {
+const MoviePost = ({ url, title, isSmall }) => {
   const [movies, setMovies] = useState([]);
+
+  useEffect(() => {
+    async function fetchMovies() {
+      try {
+        const response = await axios.get(url);
+        setMovies(response.data.results);
+      } catch (error) {
+        console.error(`MoviePost fetch error for "${title}":`, error);
+      }
+    }
+    if (url) fetchMovies();
+  }, [url]);
 
   return (
     <div className="row">
-      <h2>Title</h2>
+      <h2 className="row__title">{title}</h2>
       <div className="posters">
-        <img
-          className="poster"
-          src="https://images.justwatch.com/poster/8584648/s718/season-1.jpg"
-          alt=""
-        />
-        <img
-          className="poster"
-          src="https://images.justwatch.com/poster/8584648/s718/season-1.jpg"
-          alt=""
-        />
-        <img
-          className="poster"
-          src="https://images.justwatch.com/poster/8584648/s718/season-1.jpg"
-          alt=""
-        />
-        <img
-          className="poster"
-          src="https://images.justwatch.com/poster/8584648/s718/season-1.jpg"
-          alt=""
-        />
-        <img
-          className="poster"
-          src="https://images.justwatch.com/poster/8584648/s718/season-1.jpg"
-          alt=""
-        />
-        <img
-          className="poster"
-          src="https://images.justwatch.com/poster/8584648/s718/season-1.jpg"
-          alt=""
-        />
-        <img
-          className="poster"
-          src="https://images.justwatch.com/poster/8584648/s718/season-1.jpg"
-          alt=""
-        />
-        <img
-          className="poster"
-          src="https://images.justwatch.com/poster/8584648/s718/season-1.jpg"
-          alt=""
-        />
-        <img
-          className="poster"
-          src="https://images.justwatch.com/poster/8584648/s718/season-1.jpg"
-          alt=""
-        />
-        <img
-          className="poster"
-          src="https://images.justwatch.com/poster/8584648/s718/season-1.jpg"
-          alt=""
-        />
-        <img
-          className="poster"
-          src="https://images.justwatch.com/poster/8584648/s718/season-1.jpg"
-          alt=""
-        />
-        <img
-          className="poster"
-          src="https://images.justwatch.com/poster/8584648/s718/season-1.jpg"
-          alt=""
-        />
+        {movies.map((movie) =>
+          movie.poster_path ? (
+            <img
+              key={movie.id}
+              className={isSmall ? "poster small_poster" : "poster"}
+              src={`${imageUrl}${movie.poster_path}`}
+              alt={movie.title || movie.name}
+              title={movie.title || movie.name}
+            />
+          ) : null
+        )}
       </div>
     </div>
   );

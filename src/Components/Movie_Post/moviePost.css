@@ -1,49 +1,68 @@
 .row {
-    margin-top: 30px;
-    margin-left: 20px;
-    color: #fff;
+  margin-top: 20px;
+  padding: 0 20px;
+  color: #fff;
+}
 
+.row__title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  padding-left: 4px;
+  letter-spacing: 0.3px;
 }
 
 .posters {
-    display: flex;
-    padding: 20px;
-    overflow-x: scroll;
-    overflow-y: hidden;
-    width: 100%;
-    flex-wrap: nowrap;
-    scroll-behavior: smooth;
+  display: flex;
+  padding: 10px 4px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  flex-wrap: nowrap;
+  scroll-behavior: smooth;
+  gap: 8px;
 }
 
 .posters::-webkit-scrollbar {
-    height: 8px;
+  height: 6px;
 }
 
 .posters::-webkit-scrollbar-track {
-    background: transparent;
+  background: transparent;
 }
 
 .posters::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 4px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
 }
 
 .posters::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.4);
 }
 
 .poster {
-    max-height: 250px;
-    margin-right: 10px;
-    cursor: pointer;
-    flex-shrink: 0;
-    transition: transform 0.3s ease;
+  max-height: 260px;
+  border-radius: 6px;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  object-fit: cover;
 }
-.poster:hover{
-    transform: scale(1.1);
+
+.poster:hover {
+  transform: scale(1.08);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
 }
+
 .small_poster {
-    max-height: 150px;
-    margin-right: 10px;
-    cursor: pointer;
+  max-height: 150px;
+  border-radius: 4px;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  object-fit: cover;
+}
+
+.small_poster:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
 }
