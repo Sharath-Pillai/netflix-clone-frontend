@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Banner.css";
 import axios from "axios";
-import { API_KEY, imageUrl } from "../../Constants/constants";
+import { base_Url, imageUrl } from "../../Constants/constants";
 import { MyListContext } from "../../Context/MyListContext";
 
 const Banner = () => {
@@ -14,9 +14,7 @@ const Banner = () => {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await axios.get(
-          `https://api.themoviedb.org/3/trending/all/week?api_key=${API_KEY}&language=en-US`
-        );
+        const response = await axios.get(`${base_Url}/api/movies/trending`);
         const results = response.data.results;
         // Showing a random movie from the trending list
         const randomMovie = results[Math.floor(Math.random() * results.length)];
